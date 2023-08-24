@@ -1,10 +1,11 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addTodo } from '../stores/todo'
 import { nanoid } from '@reduxjs/toolkit';
 
 function add() {
   const dispatch = useDispatch();
+  const { user } = useSelector(state => state.auth);
 
   const submitHandle = e => {
     e.preventDefault();
