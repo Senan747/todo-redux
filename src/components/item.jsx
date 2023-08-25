@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteTodo } from '../stores/todo'
+import { openModal } from '../stores/modal'
 
 function item() {
   const dispatch = useDispatch();
@@ -8,6 +9,13 @@ function item() {
 
   const deleteHandle = () => {
     dispatch(deleteTodo(todo.id))
+  }
+
+  const editHandle = () => {
+    dispatch(openModal({
+      name: 'edit-todo',
+      data: todo
+    }))
   }
   return (
     <li>
