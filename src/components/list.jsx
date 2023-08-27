@@ -2,15 +2,17 @@ import React from "react";
 import TodoItem from "./item";
 import { useSelector } from "react-redux";
 
-function list() {
-  const {todos} = useSelector((state) => state.todo.todos);
+function List() {
+  const todos = useSelector((state) => state.todo.todos); // Accessing the 'todos' array from your Redux store
+
   return (
     <ul>
-      {todos.map((todo, key) => (
-        <TodoItem />
-      ))}
+      {todos.length > 0 &&
+        todos.map((todo) => (
+          <TodoItem key={todo.id} todo={todo} /> // Assuming 'id' is a unique identifier for each todo
+        ))}
     </ul>
   );
 }
 
-export default list;
+export default List;

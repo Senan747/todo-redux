@@ -3,9 +3,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { deleteTodo } from '../stores/todo'
 import { openModal } from '../stores/modal'
 
-function item() {
+function item({ todo }) {
   const dispatch = useDispatch();
   const { user } = useSelector(state => state.auth)
+
 
   const deleteHandle = () => {
     dispatch(deleteTodo(todo.id))
@@ -20,7 +21,7 @@ function item() {
   return (
     <li>
       <span>
-        {todo.title} - {todo.user}
+        {todo.title}
       </span>
       {
         todo.user === user.id && (

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useSelector } from "react-redux";
 import List from "./components/list";
 import  AddTodo  from "./components/add";

@@ -20,8 +20,8 @@ function header() {
           <button onClick={() => loginHandle({ id: 1, username: "senan" })}>
             login as senan
           </button>
-          <button onClick={() => loginHandle({ id: 2, username: "u.u.u.u" })}>
-            login{" "}
+          <button onClick={() => loginHandle({ id: 2, username: "user" })}>
+            login as user
           </button>
         </div>
       )}

@@ -14,8 +14,10 @@ function modal() {
 
   const modal = modals.find(m => m.name === name)
   return (
-    <div>
-      <modal.element />
+    <div className="modal">
+      <div className="modal-inner">
+        <modal.element close={close} data={data} />
+      </div>
     </div>
   )
 }
