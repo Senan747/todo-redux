@@ -19,7 +19,7 @@ function edit({data, close}) {
     close();
   }
   return (
-    <div>
+    <div className="form">
       <form action="" onSubmit={submitHandle}>
         <input type="text"  value={todo} onChange={e => setTodo(e.target.value)}/>
         <label htmlFor="">

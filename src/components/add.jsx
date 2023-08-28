@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTodo } from "../stores/todo";
 import { nanoid } from "@reduxjs/toolkit";
@@ -8,23 +8,29 @@ function add() {
   const { user } = useSelector((state) => state.auth);
   const [todo, setTodo] = useState();
 
-  const ref = useRef();
   const submitHandle = (e) => {
     e.preventDefault();
-    dispatch(
-      addTodo({
-        title: todo,
-        done: false,
-        id: nanoid(),
-        user: user.id,
-      })
-    );
-    setTodo('')
+
+    if (todo !== "") {
+      dispatch(
+        addTodo({
+          title: todo,
+          done: false,
+          id: nanoid(),
+          user: user.id,
+        })
+      );
+      setTodo("");
+    }
   };
   return (
     <div>
       <form action="" onSubmit={submitHandle}>
-        <input type="text" onChange={(e) => setTodo(e.target.value)} value={todo}/>
+        <input
+          type="text"
+          onChange={(e) => setTodo(e.target.value)}
+          value={todo}
+        />
         <button type="submit">add</button>
       </form>
     </div>
